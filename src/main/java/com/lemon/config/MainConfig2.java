@@ -22,11 +22,17 @@ public class MainConfig2 {
      * SCOPE_REQUEST :同一次请求创建一个实例
      * SCOPE_SESSION :同一个session创建一个实例
      *
+     * 懒加载：
+     *      单例bean：默认在容器启动的时候创建对象
+     *      懒加载：容器启动不创建对象，第一次使用(获取)bean创建对象，并初始化
+     *
      * @return
      */
-    @Scope(value = SCOPE_PROTOTYPE)
+//    @Scope(value = SCOPE_PROTOTYPE)
+    @Lazy
     @Bean("person")
     public Person person() {
+        System.out.println("person 初始化");
         return new Person("lisi", 18);
     }
 }
