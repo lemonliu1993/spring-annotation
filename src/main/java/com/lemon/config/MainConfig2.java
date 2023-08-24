@@ -1,6 +1,8 @@
 package com.lemon.config;
 
 import com.lemon.bean.Person;
+import com.lemon.condition.LinuxCondition;
+import com.lemon.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
 
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
@@ -34,5 +36,26 @@ public class MainConfig2 {
     public Person person() {
         System.out.println("person 初始化");
         return new Person("lisi", 18);
+    }
+
+
+    /**
+     * @Conditional,按照一定的条件进行判断，满足条件给容器中注入bean
+     * 如果系统是windows，给容器中注册bill
+     * 如果系统是linux，给容器中注册linus
+     *
+     * @return
+     */
+
+    @Conditional({WindowsCondition.class})
+    @Bean("bill")
+    public Person person01(){
+        return new Person("Bill",60);
+    }
+
+    @Conditional({LinuxCondition.class})
+    @Bean("linus")
+    public Person person02(){
+        return new Person("linus",50);
     }
 }

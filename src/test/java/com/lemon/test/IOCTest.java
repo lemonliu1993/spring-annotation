@@ -1,14 +1,36 @@
 package com.lemon.test;
 
+import com.lemon.bean.Person;
 import com.lemon.config.MainConfig;
 import com.lemon.config.MainConfig2;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
+import java.util.Map;
 
 /**
  * Created by lemoon on 2023/8/22 22:27
  */
 public class IOCTest {
+    AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
+
+
+    @Test
+    public void test03(){
+        String[] namesForType = applicationContext.getBeanNamesForType(Person.class);
+        ConfigurableEnvironment environment = applicationContext.getEnvironment();
+        //动态获取操作系统的值
+        String property = environment.getProperty("os.name");
+        System.out.println(property);
+
+        for (String name : namesForType) {
+            System.out.println(name);
+        }
+
+        Map<String, Person> persons = applicationContext.getBeansOfType(Person.class);
+        System.out.println(persons);
+    }
 
 
 
