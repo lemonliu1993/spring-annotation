@@ -15,6 +15,18 @@ import java.util.Map;
 public class IOCTest {
     AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
 
+    @Test
+    public void testImport(){
+        printBeans(applicationContext);
+    }
+
+    private void printBeans(AnnotationConfigApplicationContext applicationContext){
+        String[] definitionNames = applicationContext.getBeanDefinitionNames();
+        for (String definitionName : definitionNames) {
+            System.out.println(definitionName);
+        }
+    }
+
 
     @Test
     public void test03(){
