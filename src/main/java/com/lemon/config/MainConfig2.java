@@ -4,6 +4,7 @@ import com.lemon.bean.Color;
 import com.lemon.bean.Person;
 import com.lemon.bean.Red;
 import com.lemon.condition.LinuxCondition;
+import com.lemon.condition.MyImportBeanDefinitionRegistrar;
 import com.lemon.condition.MyImportSelector;
 import com.lemon.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
@@ -15,7 +16,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
  */
 //配置类==配置文件
 @Configuration  //告诉Spring这是一个配置类
-@Import({Color.class, Red.class, MyImportSelector.class})
+@Import({Color.class, Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 //导入组件，id默认是组件的全类名 com.lemon.bean.Color
 public class MainConfig2 {
 
@@ -71,5 +72,6 @@ public class MainConfig2 {
      * 3) @Import[快速给容器中导入一个组件]
      *      1.@Import(要导入到容器中的组件)：容器中就会自动注册这个组件，id就是全类名
      *      2.ImportSelector:返回需要导入的组件的全类名数组；
+     *      3.ImportBeanDefinitionRegistrar:registerBeanDefinitions手动注册bean到容器中
      */
 }
