@@ -31,6 +31,10 @@ import org.springframework.context.annotation.Scope;
  *
  * 2）   通过让Bean实现InitializingBean(定义初始化逻辑)，DisposableBean(定义销毁逻辑)
  *
+ * 2)   使用JSR250
+ *      @PostConstruct,在bean创建完成并且属性赋值完成，来执行初始化方法
+ *      @PreDestroy,在容器销毁bean之前通知我们进行清理工作
+ *
  */
 @ComponentScan("com.lemon.bean")
 @Configuration
