@@ -2,6 +2,8 @@ package com.lemon.config;
 
 import com.lemon.bean.Car;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 /**
@@ -27,7 +29,11 @@ import org.springframework.context.annotation.Scope;
  * 1)   指定初始化和销毁方法：
  *      指定init-method和destroy-method
  *
+ * 2）   通过让Bean实现InitializingBean(定义初始化逻辑)，DisposableBean(定义销毁逻辑)
+ *
  */
+@ComponentScan("com.lemon.bean")
+@Configuration
 public class MainConfigOfLifeCycle {
 
     @Scope("prototype")
