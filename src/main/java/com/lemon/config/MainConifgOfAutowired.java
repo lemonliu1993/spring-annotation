@@ -59,4 +59,6 @@ public class MainConifgOfAutowired {
         bookDao.setLable("2");
         return bookDao;
     }
+
+
 }
