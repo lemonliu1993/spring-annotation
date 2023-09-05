@@ -1,5 +1,7 @@
 package com.lemon.config;
 
+import com.lemon.bean.Car;
+import com.lemon.bean.Color;
 import com.lemon.dao.BookDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -58,6 +60,19 @@ public class MainConifgOfAutowired {
         BookDao bookDao = new BookDao();
         bookDao.setLable("2");
         return bookDao;
+    }
+
+
+    /**
+     * @Bean标注的方法创建对象的时候，方法参数的值从容器中获取
+     * @param car
+     * @return
+     */
+    @Bean
+    public Color color(Car car){
+        Color color = new Color();
+        color.setCar(car);
+        return color;
     }
 
 

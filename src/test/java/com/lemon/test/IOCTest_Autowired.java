@@ -1,6 +1,8 @@
 package com.lemon.test;
 
+import com.lemon.bean.Boss;
 import com.lemon.bean.Car;
+import com.lemon.bean.Color;
 import com.lemon.config.MainConifgOfAutowired;
 import com.lemon.dao.BookDao;
 import com.lemon.service.BookService;
@@ -21,6 +23,14 @@ public class IOCTest_Autowired {
 
         BookDao bean = applicationContext.getBean(BookDao.class);
         System.out.println(bean);
+
+        Boss boss = applicationContext.getBean(Boss.class);
+        System.out.println(boss);
+        Car car = applicationContext.getBean(Car.class);
+        System.out.println(car);
+
+        Color color = applicationContext.getBean(Color.class);
+        System.out.println(color);
 
     }
 }
