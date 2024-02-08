@@ -28,6 +28,9 @@ public class Person {
         this.age = age;
     }
 
+    public Person() {
+    }
+
     @Override
     public String toString() {
         return "Person{" +
